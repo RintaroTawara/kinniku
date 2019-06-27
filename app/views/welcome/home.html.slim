@@ -1,0 +1,9 @@
+h1 筋トレ仲間を探そう
+
+h1= "トレーニーを探す"
+
+- @posts.each do |post|
+  = link_to post do
+    span=post.title
+    p=post.place
+
