@@ -1,0 +1,18 @@
+= form_with model: post, local: true do |f|
+
+  - if post.errors.any?
+    ul#error_explanation
+      - post.errors.full_messages.each do |message|
+        li= message
+
+  = f.label :title, 'トレーニング内容'
+  = f.text_field :title
+  
+  = f.label :place, '場所'
+  = f.text_field :place
+  
+  = f.label :content, '投稿内容'
+  = f.text_area :content, rows:10
+  
+  = f.submit '投稿'
+  

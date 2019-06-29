@@ -1,1 +1,6 @@
 = @post.title
+= @post.place
+= @post.content
+
+= link_to '編集', edit_post_path
+= link_to '削除', @post, method: :delete

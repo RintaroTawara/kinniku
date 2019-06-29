@@ -1,20 +1,3 @@
-= form_for @post do |f|
+h1 トレーニングの新規登録
 
-  = f.label :title, '投稿タイトル'
-  = f.text_field :title
-  small#title-tip.form-text.text-muted
-    | \&#x30BF;&#x30A4;&#x30C8;&#x30EB;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;
-
-  = f.label :place, '受けた企業'
-  = f.text_field :place
-  small#title-tip.form-text.text-muted
-    | \&#x53D7;&#x3051;&#x305F;&#x4F01;&#x696D;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;
-
-  = f.label :content, '投稿内容'
-  = f.text_area :content, rows:10
-  small#content-tip.form-text.text-muted
-    | \&#x6295;&#x7A3F;&#x5185;&#x5BB9;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;
-
-  = f.submit '投稿'
-  small#submit-tip.form-text.text-muted
-  | \&#x6295;&#x7A3F;&#x3059;&#x308B;&#x524D;&#x306B;&#x6295;&#x7A3F;&#x5185;&#x5BB9;&#x3092;&#x898B;&#x76F4;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;!
+= render partial: 'form', locals: {post: @post}
