@@ -9,10 +9,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   header
-  nav
+    = link_to "kinniku", root_path
     - if user_signed_in?
-      strong
-        = link_to current_user.username, root_path
       = link_to 'トレーニング作成', new_post_path
       = link_to 'トレーニーを探す', posts_path
       = link_to 'ログアウト', destroy_user_session_path, method: :delete

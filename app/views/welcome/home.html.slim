@@ -1,6 +1,9 @@
 h1 筋トレ仲間を探そう
 
-h1= "トレーニーを探す"
+- unless user_signed_in?
+  p= link_to "登録", new_user_registration_path
+
+h1 トレーニーを探す
 
 - @posts.each do |post|
   = link_to post do

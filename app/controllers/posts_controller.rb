@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: :index
+
   def index
     @posts = Post.all
   end
@@ -14,7 +16,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      redirect_to @post
+      redirect_to @post, notice: "「#{@post.title}」のトレーニング仲間を募集しました。"
     else
       render :new
     end
@@ -27,7 +29,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to @post
+      redirect_to @post, notice: "「#{@post.title}」のトレーニング仲間を募集しました。"
     else
       render :edit
     end
