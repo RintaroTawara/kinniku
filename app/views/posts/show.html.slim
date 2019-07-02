@@ -1,6 +1,32 @@
-= @post.title
-= @post.place
-= @post.content
+h1 トレーニングの詳細
 
-= link_to '編集', edit_post_path
-= link_to '削除', @post, method: :delete
+- if @post.image_id.present?
+  = image_tag attachment_url(@post, :image), class: "img-fluid"
+- else
+  = image_tag "man-2037255_1920.jpg", class: "img-fluid"
+
+table.table.table-hover
+  tbody
+    tr
+      th= Post.human_attribute_name(:title)
+      td= @post.title
+    tr
+      th= Post.human_attribute_name(:place)
+      td= @post.place
+    tr
+      th= Post.human_attribute_name(:content)
+      td= @post.content
+    tr
+      th= Post.human_attribute_name(:created_at)
+      td= @post.created_at
+- if user_signed_in? && @post.user_id == current_user.id
+  = link_to '編集', edit_post_path, class: 'btn btn-info mr-3'
+  = link_to '削除', @post, method: :delete, data: { confirm: "トレーニング「#{@post.title}」を削除します。よろしいですか？"}, class: 'btn btn-outline-info'
+
+
+div
+  h4 コメント
+  #comments_area
+    = render partial: 'comments/index', locals: { comments: @comments }
+  - if user_signed_in?
+    = render partial: 'comments/form', locals: { comment: @comment, post: @post }
