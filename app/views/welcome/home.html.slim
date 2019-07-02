@@ -1,12 +1,26 @@
-h1 筋トレ仲間を探そう
+.jumbotron
+  .container
+    h1.display-3 筋トレ仲間を探そう
+    p 場所や筋トレ内容を投稿するだけでトレーニング仲間を募集できます。
+    - if user_signed_in?
+      = link_to "投稿", new_post_path, class: "btn btn-primary btn-lg"
+    - else
+      = link_to "登録", new_user_registration_path, class: "btn btn-primary btn-lg"
 
-- unless user_signed_in?
-  p= link_to "登録", new_user_registration_path
-
-h1 トレーニーを探す
-
-- @posts.each do |post|
-  = link_to post do
-    span=post.title
-    p=post.place
-
+.album.py-5.bg-light
+  .container
+    .row
+      - @posts.each do |post|
+        .card.mb-4.shadow-sm.col-md-4
+          - if post.image_id.present?
+            = image_tag attachment_url(post, :image), class: "img-fluid"
+          - else
+            = image_tag "man-2037255_1920.jpg", class: "img-fluid"
+          .card-body
+            p.card-text= post.content
+            .d-flex.justify-content-between.align-items-center
+              .btn-group
+                = link_to "view", post_path(post), class: "btn btn-sm btn-outline-secondary"
+                - if user_signed_in? && post.user_id == current_user.id
+                  = link_to "edit", edit_post_path(post), class: "btn btn-sm btn-outline-secondary"
+      

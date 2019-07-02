@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
+    @profile = Profile.find_by(user_id: current_user.id)
   end
 
   def new
@@ -21,7 +21,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:id])
+    @profile = Profile.find_by(user_id: current_user.id)
   end
 
   def update
@@ -36,6 +36,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:nickname, :prefecture, :gender, :birthday)
+    params.require(:profile).permit(:nickname, :prefecture, :gender, :birthday, :image)
   end
 end

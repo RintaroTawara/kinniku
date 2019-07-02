@@ -1,0 +1,10 @@
+- comments.each do |comment|
+  - unless comment.id.nil?
+    p
+      = link_to "#{comment.user.username}さん", user_path(comment.user.id)
+    p
+      | コメント：
+      = comment.content
+    - if comment.user == current_user
+      p
+        = link_to 'コメントを削除する', post_comment_path(comment.post_id, comment.id), method: :delete, remote: true

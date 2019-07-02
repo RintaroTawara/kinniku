@@ -8,17 +8,30 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
-  header
-    = link_to "kinniku", root_path
-    - if user_signed_in?
-      = link_to 'トレーニング作成', new_post_path
-      = link_to 'トレーニーを探す', posts_path
-      = link_to 'ログアウト', destroy_user_session_path, method: :delete
-    - else
-      = link_to 'サインアップ', new_user_registration_path
-      = link_to 'ログイン', new_user_session_path
-      
+  header.sticky-top
+    nav.navbar.navbar-expand.navbar-dark.bg-dark
+      a= link_to "kinniku", root_path, class: "navbar-brand"
+      button.navbar-toggler aria-controls="navbarsExample02" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarsExample02" data-toggle="collapse" type="button" 
+        span.navbar-toggler-icon
+      #navbarsExample02.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            - if user_signed_in?
+              li= link_to 'トレーニング作成', new_post_path, class: "nav-link"
+              li= link_to 'トレーニング検索', posts_path, class: "nav-link"
+              li= link_to 'プロフィール', user_path(current_user), class: "nav-link"
+              li= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"
+            - else
+              li= link_to 'サインアップ', new_user_registration_path, class: "nav-link"
+              li= link_to 'ログイン', new_user_session_path, class: "nav-link"
+        form.form-inline.my-2.my-md-0
+          input.form-control placeholder="Search" type="text" /
   body
-    p.notice= notice
-    p.alert= alert
-    = yield
+    .container
+      p.notice= notice
+      p.alert= alert
+      = yield
+
+  footer.footer.mt-auto.py-3
+    .container
+      span.text-muted kinniku by Rintaro
