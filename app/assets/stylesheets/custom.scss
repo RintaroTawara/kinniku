@@ -3,9 +3,17 @@ body{
   color: #333;
 }
 
+
 a {
   text-decoration: none;
-  color: #333;
+  color: #333
+}
+
+.font-size_header{
+  color: #fff;
+  font-size: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 //post
@@ -125,7 +133,26 @@ a {
   color: #333;
   word-wrap: break-word;
   word-break: break-all;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
+
+.it-Actions_like {
+  text-align: center;
+  font-size: 1.5rem;
+  height: 44px;
+  width: 100%;
+  margin: 0 8px;
+  border: 2px solid #17a2b8;
+  border-radius: 4px;
+  color: #17a2b8;
+  background-color: #fff;
+}
+
+
 
 
 

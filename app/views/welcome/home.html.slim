@@ -1,24 +1,23 @@
 .jumbotron
   .container
     h1.display-3 kinniku
-    p 筋トレ、栄養、睡眠などの知識を共有しよう
+    p 筋トレ、食事、睡眠などの知識を共有しよう
     - if user_signed_in?
-      = link_to "投稿", new_post_path, class: "btn btn-primary btn-lg"
+      = link_to "投稿", new_post_path, class: "btn btn-info btn-lg"
     - else
-      = link_to "登録", new_user_registration_path, class: "btn btn-primary btn-lg"
+      = link_to "登録", new_user_registration_path, class: "btn btn-info btn-lg"
 
 h3 pick up 記事
 .album.py-5.bg-light
   .container
     .row
-      - @posts.each do |post|
+      - @all_ranks.each do |post|
         .tr-Item
           .tr-Item_userImage
-            = link_to post.user do
-              - if post.user.image_id.present?
-                = image_tag attachment_url(post.user, :image)
-              - else
-                = link_to image_tag "barbell-1839086_1920.jpg"
+            - if post.user.image_id.present?
+              = link_to (image_tag attachment_url(post.user, :image)), user_path(post.user)
+            - else
+              = link_to (image_tag "barbell-1839086_1920.jpg"), user_path(post.user)
       
           .tr-Item_body
             .tr-Item_title.ml-3

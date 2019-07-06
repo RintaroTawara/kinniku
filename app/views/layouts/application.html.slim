@@ -12,15 +12,15 @@ html
 
   header.sticky-top
     nav.navbar.navbar-expand.navbar-dark.bg-dark
-      a= link_to "kinniku", root_path, class: "navbar-brand"
+      = link_to "kinniku", root_path, class: "font-size_header"
       button.navbar-toggler aria-controls="navbarsExample02" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarsExample02" data-toggle="collapse" type="button" 
         span.navbar-toggler-icon
       #navbarsExample02.collapse.navbar-collapse
         ul.navbar-nav.mr-auto
           li.nav-item.active
             - if user_signed_in?
-              li= link_to 'トレーニング作成', new_post_path, class: "nav-link"
-              li= link_to 'トレーニング検索', posts_path, class: "nav-link"
+              li= link_to '投稿', new_post_path, class: "nav-link"
+              li= link_to '投稿一覧', posts_path, class: "nav-link"
               li= link_to 'プロフィール', user_path(current_user), class: "nav-link"
               li= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"
             - else

@@ -11,9 +11,11 @@
           .it-Header_authorName
             =link_to "#{@user.username}さん", user_path(@user)
       h1.it-Header_title= @post.title 
-    .it-Tags
+    .it-Tags.mb-3
       = render 'posts/tag_list', tag_list: @post.tag_list
-
+  .mb-3
+    div id= "likes_buttons_#{@post.id}"
+      = render "likes/like", post: @post, like: @like, likes: @likes
   section.it-MdContent
     = simple_format @post.content
   - if user_signed_in? && @post.user_id == current_user.id

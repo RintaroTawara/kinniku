@@ -1,0 +1,13 @@
+
+- if user_signed_in?
+  - if post.like_user(current_user.id)
+    = button_to post_like_path(post, post.like_user(current_user)), method: :delete, class: "it-Actions_like", remote: true do
+      span.fa.fa-fw.fa-thumbs-up.mr-1
+      sapn= post.likes_count
+  - else
+    = button_to post_likes_path(post), method: :post, class: "it-Actions_like", remote: true do
+      span.fa.fa-fw.fa-thumbs-up.mr-1
+      span= post.likes_count
+- else
+  span.fa.fa-fw.fa-thumbs-up.mr-1
+  span= post.likes_count
