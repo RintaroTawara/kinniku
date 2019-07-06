@@ -1,26 +1,21 @@
 .album.p-5.bg-light.
+  .it_header
+    .u-flex-center-between.mb-3
+      .it-Header_info.mb-3
+        =link_to @user do
+          .it-Header_authorImage
+            - if @user.image_id.present?
+              = image_tag attachment_url(@user, :image)
+            - else
+              = image_tag "barbell-1839086_1920.jpg"
+          .it-Header_authorName
+            =link_to "#{@user.username}さん", user_path(@user)
+      h1.it-Header_title= @post.title 
+    .it-Tags
+      = render 'posts/tag_list', tag_list: @post.tag_list
 
-  =link_to @user do
-    - if @user.image_id.present?
-      = image_tag attachment_url(@user, :image), size: '50x50', class: "m-3 mb-4"
-    - else
-      = image_tag "man-2037255_1920.jpg", size: '50x50', class: "m-3 mb-4"
-    span.text-dark= @user.username
-
-  h1= @post.title
-
-  table.table.table-hover
-    tbody
-      tr
-        th= Post.human_attribute_name(:place)
-        td= @post.place
-      tr
-        th= Post.human_attribute_name(:content)
-        td= @post.content
-      tr
-        th= Post.human_attribute_name(:created_at)
-        td= @post.created_at
-        
+  section.it-MdContent
+    = simple_format @post.content
   - if user_signed_in? && @post.user_id == current_user.id
     = link_to '編集', edit_post_path, class: 'btn btn-info mr-3'
     = link_to '削除', @post, method: :delete, data: { confirm: "トレーニング「#{@post.title}」を削除します。よろしいですか？"}, class: 'btn btn-outline-info'

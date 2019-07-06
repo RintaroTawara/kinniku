@@ -4,6 +4,7 @@ html
     title
       | Kinniku
     = csrf_meta_tags
+    meta[name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0, user-scalable=yes"]
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag 'custom'

@@ -5,7 +5,9 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc)
     @posts = Post.page(params[:page]).per(21).order('updated_at DESC')
-    
+    if params[:tag_name]
+      @posts = @posts.tagged_with("#{params[:tag_name]}")
+    end
   end
 
   def show
@@ -50,6 +52,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :place, :content, :image)
+    params.require(:post).permit(:title, :content, :tag_list)
   end
 end

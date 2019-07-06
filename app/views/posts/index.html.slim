@@ -5,11 +5,10 @@ h1 トレーニングを探す
   - @posts.each do |post|
     .tr-Item
       .tr-Item_userImage
-        = link_to post.user do
-          - if post.user.image_id.present?
-            = image_tag attachment_url(post.user, :image)
-          - else
-            = link_to image_tag "barbell-1839086_1920.jpg"
+        - if post.user.image_id.present?
+          = link_to (image_tag attachment_url(post.user, :image)), user_path(post.user)
+        - else
+          = link_to (image_tag "barbell-1839086_1920.jpg"), user_path(post.user)
       
       .tr-Item_body
         .tr-Item_title.ml-3

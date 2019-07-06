@@ -1,7 +1,7 @@
 .jumbotron
   .container
-    h1.display-3 筋トレ仲間を探そう
-    p 場所や筋トレ内容を投稿するだけでトレーニング仲間を募集できます。
+    h1.display-3 kinniku
+    p 筋トレ、栄養、睡眠などの知識を共有しよう
     - if user_signed_in?
       = link_to "投稿", new_post_path, class: "btn btn-primary btn-lg"
     - else
