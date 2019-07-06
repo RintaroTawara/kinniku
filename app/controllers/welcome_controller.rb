@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def home
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc).limit(21)
   end
 end

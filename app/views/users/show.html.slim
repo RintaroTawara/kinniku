@@ -1,9 +1,47 @@
-= link_to "編集", edit_user_registration_path
-h1
-  | Users#show
-p
-  | 名前 : 
-  = @user.username
-p
-  | メールアドレス : 
-  = @user.email
+h1 プロフィール
+
+.row.album.p-5.bg-light
+  .col-xs-12.col-md-4
+    .user-show_Image
+      - if @user.image_id.present?
+        = image_tag attachment_url(@user, :image)
+      - else
+        = image_tag "barbell-1839086_1920.jpg"
+
+  .col-xs-12.col-md-8.border-left
+    table.table.table-hover
+      tbody
+        tr
+          th= User.human_attribute_name(:username)
+          td= @user.username
+        tr
+          th= User.human_attribute_name(:place)
+          td= @user.place
+        tr
+          th= User.human_attribute_name(:birthday)
+          td= @user.birthday
+        tr
+          th= User.human_attribute_name(:created_at)
+          td= @user.created_at
+
+
+  - if user_signed_in? && @user.id == current_user.id
+    = link_to "編集", edit_user_registration_path, class: 'btn btn-info mr-3'
+
+h2.mt-3= "#{@user.username}さんの投稿"
+
+.row.album.p-5.bg-light
+  - @posts.each do |post|
+    .tr-Item
+      .tr-Item_userImage
+        = link_to post.user do
+          - if post.user.image_id.present?
+            = image_tag attachment_url(post.user, :image)
+          - else
+            = link_to image_tag "barbell-1839086_1920.jpg"
+      
+      .tr-Item_body
+        .tr-Item_title.ml-3
+          = link_to post.title, post_path(post)
+        .tr-Item_meta.ml-3
+          = link_to "by #{post.user.username}", user_path(post.user)

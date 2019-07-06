@@ -1,5 +1,5 @@
 = form_with(model: [post, comment] ) do |form|
-  div
-    = form.text_area :content
+  div.form-group.m-3
+    = form.text_area :content, class: "form-control"
   .actions
-    = form.submit "コメントをする"
+    = form.submit "コメントする"

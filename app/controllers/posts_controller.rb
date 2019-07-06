@@ -1,12 +1,16 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: :index
+  PER = 18
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.page(params[:page]).per(21).order('updated_at DESC')
+    
   end
 
   def show
     @post = Post.find(params[:id])
+    @user = User.find_by(id: @post.user_id)
     @comment = Comment.new
     @comments = @post.comments
   end

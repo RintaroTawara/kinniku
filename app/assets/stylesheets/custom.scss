@@ -1,0 +1,81 @@
+body{
+  font-family: "游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,"ＭＳ Ｐゴシック",sans-serif;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+//post
+.tr-Item {
+  display: flex;
+  width: 100%;
+  font-size: 1.4rem;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 16px;
+}
+
+.tr-Item_userImage {
+  display: flex;
+  overflow: hidden;
+  border-radius: .2em;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  margin-right: 8px;
+}
+
+.tr-Item_userImage img {
+  width: 100%;
+  height: 100%;
+  border-radius: .2em;
+}
+
+.tr-Item_body {
+  flex: 1 1;
+}
+
+.tr-Item_title {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: inherit;
+  line-height: 1.4;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.tr-Item_meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  color: #999;
+  font-size: .7em;
+}
+
+
+//user
+.user-show_Image {
+  display: flex;
+  overflow: hidden;
+  border-radius: .2em;
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  margin-right: 4px;
+}
+
+.user-show_Image img {
+    border-radius: 3px;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    border-radius: 6px;
+    overflow: hidden;
+    width: 100%;
+}

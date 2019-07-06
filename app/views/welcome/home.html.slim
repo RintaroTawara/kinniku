@@ -7,20 +7,21 @@
     - else
       = link_to "登録", new_user_registration_path, class: "btn btn-primary btn-lg"
 
+h3 pick up 記事
 .album.py-5.bg-light
   .container
     .row
       - @posts.each do |post|
-        .card.mb-4.shadow-sm.col-md-4
-          - if post.image_id.present?
-            = image_tag attachment_url(post, :image), class: "img-fluid"
-          - else
-            = image_tag "man-2037255_1920.jpg", class: "img-fluid"
-          .card-body
-            p.card-text= post.content
-            .d-flex.justify-content-between.align-items-center
-              .btn-group
-                = link_to "view", post_path(post), class: "btn btn-sm btn-outline-secondary"
-                - if user_signed_in? && post.user_id == current_user.id
-                  = link_to "edit", edit_post_path(post), class: "btn btn-sm btn-outline-secondary"
+        .tr-Item
+          .tr-Item_userImage
+            = link_to post.user do
+              - if post.user.image_id.present?
+                = image_tag attachment_url(post.user, :image)
+              - else
+                = link_to image_tag "barbell-1839086_1920.jpg"
       
+          .tr-Item_body
+            .tr-Item_title.ml-3
+              = link_to post.title, post_path(post)
+            .tr-Item_meta.ml-3
+              = link_to "by #{post.user.username}", user_path(post.user)
