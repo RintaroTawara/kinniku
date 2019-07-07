@@ -2,22 +2,11 @@ h1 見つける
 
 .mb-3
   = form_tag(posts_path,:method => 'get') do
-    = text_field_tag :search, '', class: 'form-control', placeholder: "search"
+    = text_field_tag :search, '', class: 'form-control', placeholder: "検索する"
 
 .row.album.p-5.bg-light
   = paginate @posts
   - @posts.each do |post|
-    .tr-Item
-      .tr-Item_userImage
-        - if post.user.image_id.present?
-          = link_to (image_tag attachment_url(post.user, :image)), user_path(post.user)
-        - else
-          = link_to (image_tag "barbell-1839086_1920.jpg"), user_path(post.user)
-      
-      .tr-Item_body
-        .tr-Item_title.ml-3
-          = link_to post.title, post_path(post)
-        .tr-Item_meta.ml-3
-          = link_to "by #{post.user.username}", user_path(post.user)
+    = render partial: 'posts_index', locals: {post: post}
 
   = paginate @posts

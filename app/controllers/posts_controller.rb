@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: :index
-  PER = 18
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -24,7 +23,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      redirect_to @post, notice: "「#{@post.title}」のトレーニング仲間を募集しました。"
+      redirect_to @post, notice: "「#{@post.title}」の記事を投稿しました。"
     else
       render :new
     end
@@ -37,7 +36,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to @post, notice: "「#{@post.title}」のトレーニング仲間を募集しました。"
+      redirect_to @post, notice: "「#{@post.title}」の記事を編集しました。"
     else
       render :edit
     end

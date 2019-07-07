@@ -4,20 +4,20 @@ html
     title
       | Kinniku
     = csrf_meta_tags
-    meta[name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0, user-scalable=yes"]
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag 'custom'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   header.sticky-top
-    nav.navbar.navbar-expand.navbar-dark.bg-dark
-      = link_to "kinniku", root_path, class: "font-size_header"
-      button.navbar-toggler aria-controls="navbarsExample02" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarsExample02" data-toggle="collapse" type="button" 
-        span.navbar-toggler-icon
-      #navbarsExample02.collapse.navbar-collapse
-        ul.navbar-nav.mr-auto
-          li.nav-item.active
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .container
+        = link_to "kinniku", root_path, class: "font-size_header navbar-brand"
+        button.navbar-toggler aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" data-target="#navbar" data-toggle="collapse" type="button" 
+          span.navbar-toggler-icon
+        #navbar.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto
             - if user_signed_in?
               li= link_to '投稿', new_post_path, class: "nav-link"
               li= link_to '投稿一覧', posts_path, class: "nav-link"
@@ -26,8 +26,7 @@ html
             - else
               li= link_to 'サインアップ', new_user_registration_path, class: "nav-link"
               li= link_to 'ログイン', new_user_session_path, class: "nav-link"
-        form.form-inline.my-2.my-md-0
-          input.form-control placeholder="Search" type="text" /
+        
   body
     .container
       p.notice= notice

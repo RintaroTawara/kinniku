@@ -1,0 +1,15 @@
+.tr-Item
+  .tr-Item_userImage
+    - if post.user.image_id.present?
+      = link_to (image_tag attachment_url(post.user, :image)), user_path(post.user)
+    - else
+      = link_to (image_tag "barbell-1839086_1920.jpg"), user_path(post.user)
+      
+  .tr-Item_body
+    .tr-Item_title.ml-3
+      = link_to post.title, post_path(post)
+    .tr-Item_meta.ml-3
+      = link_to "by #{post.user.username}", user_path(post.user)
+      .tr-Item_likeCount
+        span.fa.fa-thumbs-up.mr1-1of2
+          = post.likes_count

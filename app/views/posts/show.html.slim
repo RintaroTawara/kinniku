@@ -20,7 +20,7 @@
     = simple_format @post.content
   - if user_signed_in? && @post.user_id == current_user.id
     = link_to '編集', edit_post_path, class: 'btn btn-info mr-3'
-    = link_to '削除', @post, method: :delete, data: { confirm: "トレーニング「#{@post.title}」を削除します。よろしいですか？"}, class: 'btn btn-outline-info'
+    = link_to '削除', @post, method: :delete, data: { confirm: "記事「#{@post.title}」を削除します。よろしいですか？"}, class: 'btn btn-outline-info'
 
   div
     h2.mt-5 コメント

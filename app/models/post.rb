@@ -1,9 +1,7 @@
 class Post < ApplicationRecord
   acts_as_taggable
-  
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 30 }
   validates :content, presence: true
-
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
