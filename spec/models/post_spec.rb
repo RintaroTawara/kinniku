@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   before do
     @user = FactoryBot.create(:user)
-    @post = @user.posts.new(title: "title", place: "Tokyo", content: "description")
+    @post = @user.posts.new(title: "title", content: "description")
   end
 
   context "投稿が有効であるとき" do
@@ -15,11 +15,6 @@ RSpec.describe Post, type: :model do
   context "投稿が無効であるとき" do
     it "タイトルが存在しない" do
       @post.title = ""
-      expect(@post).not_to be_valid
-    end
-
-    it "場所が存在しない" do
-      @post.place = ""
       expect(@post).not_to be_valid
     end
 
