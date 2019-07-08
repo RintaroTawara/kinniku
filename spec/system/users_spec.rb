@@ -79,6 +79,6 @@ describe "ユーザー管理機能", type: :system do
       it 'エラーとなる' do
         expect(page).to have_css('div#error_explanation')
       end
-    end
+    end 
   end
 end
