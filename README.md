@@ -1,24 +1,23 @@
-# README
+kinniku
+====
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Overview
 
-Things you may want to cover:
+## Description
+This is a Rails application for peaple who want to share ideas relating to fittness.
+You can post any articles and read exellent ideas, of course you can make a comment on them.
 
-* Ruby version
+## Motivation
+I created this application becourse I have an idea that I want everybody to be more healthy, and connect this idea to a web service.
+I got experience from this project to make web site by Ruby, Rails, Javascript, CSS, HTML and so on.
 
-* System dependencies
+##Tech Notes
 
-* Configuration
 
-* Database creation
+## Licence
 
-* Database initialization
+[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
 
-* How to run the test suite
+## Author
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[tcnksm](https://github.com/tcnksm)
