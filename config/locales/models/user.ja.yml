@@ -10,4 +10,5 @@ ja:
         birthday: 生年月日
         email: メールアドレス
         password: パスワード
-        username: ユーザーネーム  
+        username: ユーザ名
+        place: 活動場所
