@@ -1,0 +1,17 @@
+h1
+  = @title
+.row.album.p-5.bg-light
+  = paginate @users
+  - @users.each do |user|
+    .tr-Item
+      .tr-Item_userImage
+        - if user.image_id.present?
+          = link_to (image_tag attachment_url(user, :image)), user_path(user)
+        - else
+          = link_to (image_tag "barbell-1839086_1920.jpg"), user_path(user)
+      
+      .tr-Item_body
+        .tr-Item_title.ml-3
+          = link_to user.username, user_path(user)
+
+  = paginate @users
