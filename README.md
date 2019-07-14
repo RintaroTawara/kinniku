@@ -2,7 +2,7 @@ kinniku
 ====
 フィットネスの知識を共有できるサービスです。  
 主にワークアウト、食事、睡眠の記事を投稿することができ、コメント、いいねができます。  
-URL:  
+URL: http://3.113.105.45
 
 This is a Rails application for peaple who want to share ideas relating to fittness.  
 You can post any articles and read exellent ideas, of course you can make a comment and like on them
