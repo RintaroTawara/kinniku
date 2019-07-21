@@ -52,4 +52,3 @@ production:
   database: kinniku_production
   username: kinniku
   password: <%= ENV['KINNIKU_DATABASE_PASSWORD'] %>
-gem
