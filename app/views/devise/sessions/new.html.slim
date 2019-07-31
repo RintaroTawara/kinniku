@@ -15,6 +15,12 @@ h2
       = f.label "情報を保存する"
   .actions
     = f.submit "ログイン", class: "btn btn-info btn-lg m-3"
+    
+.oauth-login-buttons
+  .button-wrappe
+    = button_to user_facebook_omniauth_authorize_path, class: "facebook-login p-3"
+      span.fab.fa-facebook-f.mr-1
+      ="Facebookで登録/ログイン"
 
 
 .sessionsLayout_guide

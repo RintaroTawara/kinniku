@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -16,6 +16,32 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   attachment :image
 
+  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    unless user
+      user = User.create(username:     auth.extra.raw_info.name,
+                         provider: auth.provider,
+                         uid:      auth.uid,
+                         email:    auth.info.email,
+                         password: Devise.friendly_token[0,20]
+                        )
+    end
+    user
+  end
+
+  def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    unless user
+      user = User.create(username:     auth.info.nickname,
+                         provider: auth.provider,
+                         uid:      auth.uid,
+                         email:    User.create_unique_email,
+                         password: Devise.friendly_token[0,20]
+                        )
+    end
+    user
+  end
+
   def follow(other_user)
     following << other_user
   end
@@ -28,4 +54,5 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
   
+
 end
