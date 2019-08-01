@@ -8,7 +8,7 @@ h2
     br
     = f.password_field :password, placeholder: "パスワード", class: "form-control", autocomplete: "current-password"
     .help-block
-      =link_to "パスワードを忘れた場合", new_user_password_path
+      = link_to "パスワードを忘れた場合", new_user_password_path
   - if devise_mapping.rememberable?
     .field
       = f.check_box :remember_me
@@ -20,7 +20,7 @@ h2
   .button-wrappe
     = button_to user_facebook_omniauth_authorize_path, class: "facebook-login p-3"
       span.fab.fa-facebook-f.mr-1
-      ="Facebookで登録/ログイン"
+      = "Facebookで登録/ログイン"
 
 
 .sessionsLayout_guide

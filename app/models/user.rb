@@ -6,40 +6,36 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :active_relationships, class_name:  "Relationship",
+  has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
                                   dependent: :destroy
-  has_many :passive_relationships, class_name:  "Relationship",
-                                  foreign_key: "followed_id",
-                                  dependent:   :destroy
+  has_many :passive_relationships, class_name: "Relationship",
+                                   foreign_key: "followed_id",
+                                   dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   attachment :image
 
-  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    unless user
-      user = User.create(username:     auth.extra.raw_info.name,
-                         provider: auth.provider,
-                         uid:      auth.uid,
-                         email:    auth.info.email,
-                         password: Devise.friendly_token[0,20]
-                        )
+  class << self
+    def find_for_facebook_oauth(auth, _signed_in_resource = nil)
+      user = User.where(provider: auth.provider, uid: auth.uid).first
+      user ||= User.create(username: auth.extra.raw_info.name,
+                           provider: auth.provider,
+                           uid: auth.uid,
+                           email: auth.info.email,
+                           password: Devise.friendly_token[0, 20])
+      user
     end
-    user
-  end
 
-  def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    unless user
-      user = User.create(username:     auth.info.nickname,
-                         provider: auth.provider,
-                         uid:      auth.uid,
-                         email:    User.create_unique_email,
-                         password: Devise.friendly_token[0,20]
-                        )
+    def find_for_twitter_oauth(auth, _signed_in_resource = nil)
+      user = User.where(provider: auth.provider, uid: auth.uid).first
+      user ||= User.create(username: auth.info.nickname,
+                           provider: auth.provider,
+                           uid: auth.uid,
+                           email: User.create_unique_email,
+                           password: Devise.friendly_token[0, 20])
+      user
     end
-    user
   end
 
   def follow(other_user)
@@ -53,6 +49,5 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
-  
 
 end
