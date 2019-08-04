@@ -28,5 +28,5 @@
 
 # Ignore all vendorfiles
 /vendor/*
-/.env
+/.env.local
 config/database.yml
