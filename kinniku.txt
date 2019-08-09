@@ -1,0 +1,107 @@
+-- MySQL dump 10.13  Distrib 5.6.44, for Linux (x86_64)
+--
+-- Host: kinniku-mysql.cduyoflrljbo.ap-northeast-1.rds.amazonaws.com    Database: kinniku_production
+-- ------------------------------------------------------
+-- Server version	5.6.40-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Dumping data for table `ar_internal_metadata`
+--
+
+LOCK TABLES `ar_internal_metadata` WRITE;
+/*!40000 ALTER TABLE `ar_internal_metadata` DISABLE KEYS */;
+INSERT INTO `ar_internal_metadata` VALUES ('environment','production','2019-07-13 14:44:49','2019-07-13 14:44:49');
+/*!40000 ALTER TABLE `ar_internal_metadata` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `comments`
+--
+
+LOCK TABLES `comments` WRITE;
+/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+INSERT INTO `comments` VALUES (1,5,'2019-07-14 02:42:23','2019-07-14 02:42:23',2,'kome');
+/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `likes`
+--
+
+LOCK TABLES `likes` WRITE;
+/*!40000 ALTER TABLE `likes` DISABLE KEYS */;
+INSERT INTO `likes` VALUES (1,1,1,'2019-07-13 15:24:43','2019-07-13 15:24:43'),(2,2,1,'2019-07-14 00:40:43','2019-07-14 00:40:43'),(4,2,2,'2019-07-14 02:43:25','2019-07-14 02:43:25'),(5,1,23,'2019-07-15 01:28:35','2019-07-15 01:28:35'),(6,3,23,'2019-07-15 01:29:59','2019-07-15 01:29:59'),(8,3,10,'2019-07-15 01:30:17','2019-07-15 01:30:17'),(9,3,11,'2019-07-15 01:30:20','2019-07-15 01:30:20'),(10,3,12,'2019-07-15 01:30:24','2019-07-15 01:30:24'),(11,3,9,'2019-07-15 01:32:39','2019-07-15 01:32:39'),(12,3,8,'2019-07-15 01:32:43','2019-07-15 01:32:43'),(13,3,7,'2019-07-15 01:32:48','2019-07-15 01:32:48'),(14,2,5,'2019-07-15 01:35:02','2019-07-15 01:35:02'),(20,4,23,'2019-08-01 05:28:33','2019-08-01 05:28:33');
+/*!40000 ALTER TABLE `likes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `posts`
+--
+
+LOCK TABLES `posts` WRITE;
+/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+INSERT INTO `posts` VALUES (1,'Test','Test','2019-07-13 15:24:30','2019-07-13 15:24:30',1,NULL,2),(2,'test','test','2019-07-14 01:32:31','2019-07-14 01:32:31',2,NULL,1),(3,'tore','tore','2019-07-14 01:33:05','2019-07-14 01:33:05',2,NULL,NULL),(4,'Test','Test','2019-07-14 01:38:39','2019-07-14 01:38:39',2,NULL,0),(5,'肩トレ','kata','2019-07-14 02:18:02','2019-07-14 02:18:02',2,NULL,1),(6,'胸トレ','胸トレ頑張ろう','2019-07-14 02:44:01','2019-07-14 02:44:01',2,NULL,NULL),(7,'食事管理','食事管理について\r\n\r\n食事管理は重要です。\r\nPFCバランスの良い食事を心がけましょう。','2019-07-15 01:15:22','2019-07-15 01:15:22',2,NULL,1),(8,'睡眠','睡眠は一日７時間以上を心がけましょう。\r\n\r\n睡眠は生活の基本です。','2019-07-15 01:16:34','2019-07-15 01:16:34',2,NULL,1),(9,'脚トレ','Don\'t skip leg day.\r\n\r\n脚トレは最も重要なトレーニングです。','2019-07-15 01:17:56','2019-07-15 01:17:56',2,NULL,1),(10,'野菜を食べよう','野菜を食べることには様々な利点があります。\r\n\r\n','2019-07-15 01:19:21','2019-07-15 01:19:21',1,NULL,1),(11,'PFCバランス','PFCとは、タンパク質、脂質、炭水化物のことです。','2019-07-15 01:20:34','2019-07-15 01:20:34',1,NULL,1),(12,'懸垂のやり方','肩をすぼめず、胸をバーに近付けるように行いましょう。','2019-07-15 01:21:31','2019-07-15 01:21:31',1,NULL,1),(13,'test','test','2019-07-15 01:22:08','2019-07-15 01:22:08',1,NULL,NULL),(14,'test','test','2019-07-15 01:22:16','2019-07-15 01:22:16',1,NULL,NULL),(15,'test','test','2019-07-15 01:22:24','2019-07-15 01:22:24',1,NULL,NULL),(16,'test','test','2019-07-15 01:22:31','2019-07-15 01:22:31',1,NULL,NULL),(17,'test','test','2019-07-15 01:22:43','2019-07-15 01:22:43',1,NULL,NULL),(18,'test','test','2019-07-15 01:22:50','2019-07-15 01:22:50',1,NULL,NULL),(19,'test','test','2019-07-15 01:23:06','2019-07-15 01:23:06',1,NULL,NULL),(20,'test','test','2019-07-15 01:23:24','2019-07-15 01:23:24',1,NULL,NULL),(21,'test','test','2019-07-15 01:23:32','2019-07-15 01:23:32',1,NULL,NULL),(22,'test','test','2019-07-15 01:23:55','2019-07-15 01:23:55',1,NULL,NULL),(23,'ダンベルベンチプレスのススメ','バーベルでのベンチプレスで胸に効かないという方は、ダンベルでベンチプレスをやってみることをお勧めします。\r\n\r\nダンベルでのベンチプレスは、可動域を広く取ることができます。\r\nまた、重量を追うことがバーベルでのベンチプレスよりも少なくなる為、\r\n胸に効かせる意識をしやすくなると思います。\r\n\r\nベンチプレスをするときに重要となる肘を近づけながら挙上するというイメージもつきやすくなる為、\r\nさらに胸に効く感覚を体感できると思います。','2019-07-15 01:28:28','2019-07-15 01:28:28',1,NULL,3);
+/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `relationships`
+--
+
+LOCK TABLES `relationships` WRITE;
+/*!40000 ALTER TABLE `relationships` DISABLE KEYS */;
+INSERT INTO `relationships` VALUES (1,2,1,'2019-07-14 00:40:47','2019-07-14 00:40:47'),(2,3,1,'2019-07-15 01:33:41','2019-07-15 01:33:41');
+/*!40000 ALTER TABLE `relationships` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `taggings`
+--
+
+LOCK TABLES `taggings` WRITE;
+/*!40000 ALTER TABLE `taggings` DISABLE KEYS */;
+INSERT INTO `taggings` VALUES (1,1,'Post',1,NULL,NULL,'tags','2019-07-13 15:24:30'),(2,1,'Post',2,NULL,NULL,'tags','2019-07-14 01:32:31'),(3,2,'Post',3,NULL,NULL,'tags','2019-07-14 01:33:05'),(4,1,'Post',4,NULL,NULL,'tags','2019-07-14 01:38:39'),(5,3,'Post',5,NULL,NULL,'tags','2019-07-14 02:18:02'),(6,4,'Post',6,NULL,NULL,'tags','2019-07-14 02:44:01'),(7,5,'Post',7,NULL,NULL,'tags','2019-07-15 01:15:22'),(8,6,'Post',8,NULL,NULL,'tags','2019-07-15 01:16:35'),(9,7,'Post',8,NULL,NULL,'tags','2019-07-15 01:16:35'),(10,8,'Post',9,NULL,NULL,'tags','2019-07-15 01:17:56'),(11,9,'Post',10,NULL,NULL,'tags','2019-07-15 01:19:22'),(12,10,'Post',10,NULL,NULL,'tags','2019-07-15 01:19:22'),(13,11,'Post',11,NULL,NULL,'tags','2019-07-15 01:20:34'),(14,12,'Post',12,NULL,NULL,'tags','2019-07-15 01:21:31'),(15,1,'Post',13,NULL,NULL,'tags','2019-07-15 01:22:08'),(16,1,'Post',14,NULL,NULL,'tags','2019-07-15 01:22:16'),(17,1,'Post',15,NULL,NULL,'tags','2019-07-15 01:22:24'),(18,1,'Post',16,NULL,NULL,'tags','2019-07-15 01:22:31'),(19,1,'Post',17,NULL,NULL,'tags','2019-07-15 01:22:43'),(20,1,'Post',18,NULL,NULL,'tags','2019-07-15 01:22:50'),(21,1,'Post',19,NULL,NULL,'tags','2019-07-15 01:23:06'),(22,1,'Post',20,NULL,NULL,'tags','2019-07-15 01:23:24'),(23,1,'Post',21,NULL,NULL,'tags','2019-07-15 01:23:32'),(24,1,'Post',22,NULL,NULL,'tags','2019-07-15 01:23:55'),(25,13,'Post',23,NULL,NULL,'tags','2019-07-15 01:28:28'),(26,14,'Post',23,NULL,NULL,'tags','2019-07-15 01:28:28');
+/*!40000 ALTER TABLE `taggings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `tags`
+--
+
+LOCK TABLES `tags` WRITE;
+/*!40000 ALTER TABLE `tags` DISABLE KEYS */;
+INSERT INTO `tags` VALUES (1,'Test',13),(2,'tore',1),(3,'肩',1),(4,'胸',1),(5,'食事管理',1),(6,'睡眠',1),(7,'眠り',1),(8,'脚トレ',1),(9,'野菜',1),(10,'食事',1),(11,'PFC',1),(12,'懸垂',1),(13,'ダンベル',1),(14,'ベンチプレス',1);
+/*!40000 ALTER TABLE `tags` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'ash@email.com','$2a$11$xFQd844SOnvWNuV7RnbbuO0EYTy6r8IQi0vJ25bpbiPRiCcjxfi9W',NULL,NULL,NULL,'2019-07-13 15:08:06','2019-07-13 15:09:22','Ash','0b3b120dbafd05511164d079b6b381b595fc2cf13bee83e0ea59ae41dc66','1989-01-01',NULL,'',NULL,NULL),(2,'rin@email.com','$2a$11$/zCVVtMr5Q2fGUGEeLugx.hSk5Pgwby/GLtsJs0rwumiQhIiZFnNK',NULL,NULL,NULL,'2019-07-14 00:40:33','2019-07-15 01:34:47','りん','698b8ed9dfabeec0c124ca5487050c05c1b7fb0d6da0de52ea1e5b0cd36c','1996-03-02',NULL,'渋谷・目黒・世田谷',NULL,NULL),(3,'test@email.com','$2a$11$SmupMAw65rrPI2M3Zp/jVO8g74fkUFIv2Sl1MwBAGKS9RAps0KCu.',NULL,NULL,NULL,'2019-07-15 01:29:47','2019-07-15 01:33:31','test',NULL,'1989-01-01',NULL,'',NULL,NULL),(4,'abgata@abgata.jp','$2a$11$Qoteqn9vAjiwepZh/zkt/.E8kirlx/grF7o4/VphkcdVv4A3KlBLy',NULL,NULL,NULL,'2019-08-01 05:25:30','2019-08-01 05:25:30','abgata20000',NULL,NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-08-07 12:38:28
