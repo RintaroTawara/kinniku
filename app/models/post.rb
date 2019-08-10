@@ -6,16 +6,18 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  def self.search(search)
-    if search
-      Post.where(['title LIKE ?', "%#{search}%"])
-    else
-      Post.all
+  class << self
+    def search(search)
+      if search
+        Post.where(['title LIKE ?', "%#{search}%"])
+      else
+        Post.all
+      end
     end
-  end
 
-  def self.create_all_ranks
-    Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
+    def create_all_ranks
+      Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
+    end
   end
 
   def like_user(user_id)
@@ -25,7 +27,7 @@ class Post < ApplicationRecord
   def iine(user)
     likes.create(user_id: user.id)
   end
-  
+
   def uniine(user)
     likes.find_by(user_id: user.id).destroy
   end

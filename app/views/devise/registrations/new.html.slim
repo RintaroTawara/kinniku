@@ -1,8 +1,8 @@
 .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
   div.sessionsLayoutHeader_title
-    ="kinnikuへようこそ！"
+    = "kinnikuへようこそ！"
   .lead
-    ="無料登録をして利用を開始しましょう。"
+    = "無料登録をして利用を開始しましょう。"
 
 
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
@@ -24,7 +24,12 @@
     = f.password_field :password_confirmation, placeholder: "パスワード(確認)", class: "form-control", autocomplete: "new-password"
   .actions
     = f.submit "登録", class: "btn btn-info btn-lg m-3"
+.oauth-login-buttons
+  .button-wrappe
+    = button_to user_facebook_omniauth_authorize_path, class: "facebook-login p-3"
+      span.fab.fa-facebook-f.mr-1
+      = "Facebookで登録/ログイン"
 .sessionsLayout_guide
   = "もしkinnikuのアカウントを持っている場合は"
-  =link_to "ログイン", user_session_path
-  ="から。"
+  = link_to "ログイン", user_session_path
+  = "から。"

@@ -48,6 +48,24 @@ a {
   color: #8a8a8a;
 }
 
+.facebook-login {
+    width: 300px;
+    border: 3px solid #17a2b8;
+    font-weight: 400;
+    background-color: #3b5998;
+    color: #fff;
+    border-radius: .28571429rem;
+}
+
+
+.oauth-login-buttons {
+  text-align: center;
+}
+
+.button-wrapper {
+  margin: 8px 0;
+}
+
 //post
 .tr-Item {
   display: flex;
