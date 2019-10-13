@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   attachment :image
 
+  enum role: { general: 1, admin: 99 }
+
   class << self
     def find_for_facebook_oauth(auth, _signed_in_resource = nil)
       user = User.where(provider: auth.provider, uid: auth.uid).first
