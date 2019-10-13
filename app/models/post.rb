@@ -18,6 +18,10 @@ class Post < ApplicationRecord
     def create_all_ranks
       Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
     end
+
+    def execute
+      Post.create!(title: "自動", content: "自動", user_id: 1)
+    end
   end
 
   def like_user(user_id)
@@ -31,4 +35,5 @@ class Post < ApplicationRecord
   def uniine(user)
     likes.find_by(user_id: user.id).destroy
   end
+
 end
