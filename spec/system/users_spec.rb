@@ -62,13 +62,14 @@ describe "ユーザー管理機能", type: :system do
       visit edit_user_registration_path
       fill_in 'ユーザ名', with: 'TARO'
       fill_in 'メールアドレス', with: 'taro@examples.com'
-      fill_in 'パスワード', with: 'password1'
-      fill_in 'パスワード(確認)', with: 'password1'
+      fill_in 'パスワード', with: testpass
+      fill_in 'パスワード(確認)', with: testpass
+      fill_in '現在のパスワード', with: "password"
       click_on '更新'
     end
 
     context '有効な情報を入力したとき' do
-      let(:testpass) { "password" }
+      let(:testpass) { "password1" }
       it 'ユーザ情報が更新される' do
         expect(page).to have_selector '.notice', text: 'アカウントが更新されました。'
       end

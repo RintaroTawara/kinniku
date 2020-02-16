@@ -43,9 +43,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_update_path_for(resource)
   # user_path(id: current_user.id)
   # end
+  # @param [Object] resource
 
+  # @param [Object] params
   def update_resource(resource, params)
-    resource.update_without_password(params)
+    return super if params["password"]&.present?
+    resource.update_without_password(params.except("current_password"))
   end
 
   # If you have extra params to permit, append them to the sanitizer.

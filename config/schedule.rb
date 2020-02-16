@@ -7,6 +7,6 @@ set :environment, rails_env
 set :output, "#{rails_root}/log/cron.log"
 
 
-every 1.minute do
+every 1.day, :at => "5:00 am" do
   runner "Post.execute"
 end
