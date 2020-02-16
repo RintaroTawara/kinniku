@@ -83,3 +83,4 @@ gem 'dotenv-rails'
 gem 'whenever', require: false
 gem "cancancan"
 gem "rails_admin"
+gem "annotate"
