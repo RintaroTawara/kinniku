@@ -1,15 +1,17 @@
 require 'rails_helper'
 
 describe '記事検索機能', type: :system do
-  let(:user_a) { FactoryBot.create(:user, email: 'a@example.com') }
+  let!(:user_a) { FactoryBot.create(:user, email: 'a@example.com') }
   let(:user_b) { FactoryBot.create(:user, email: 'b@example.com') }
   let!(:post_a) { FactoryBot.create(:post, user: user_a, title: '最初のトレーニング') }
+
 
   before do
     visit user_session_path
     fill_in 'メールアドレス', with: login_user.email
     fill_in 'パスワード', with: login_user.password
     click_button 'ログイン'
+    visit posts_path
   end
 
   shared_examples_for 'ユーザーAが作成した記事が表示される' do

@@ -50,11 +50,15 @@ h2
   .from-group.mb-4
     = f.label :password_confirmation, "パスワード(確認)"
     = f.password_field :password_confirmation, placeholder: "パスワード(確認)", autocomplete: "new-password", class: "form-control"
+
+  .from-group.mb-4
+    = f.label :current_password, "現在のパスワード"
+    i
+    = f.password_field :current_password, placeholder: "現在のパスワード", autocomplete: "current-password", class: "form-control"
+
   .actions
     = f.submit "更新", class: "btn btn-info m-3 mb-5"
-
-
-h3
+    h3
   | アカウントを削除しますか？
 p
   = button_to "アカウント削除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
